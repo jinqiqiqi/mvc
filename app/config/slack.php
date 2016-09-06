@@ -20,7 +20,7 @@ return [
 | Name of your bot's default username.
 |
 */
-	'username' => 'jinqiqiqibot',
+	'username' => 'ROBOT',
 /*
 |--------------------------------------------------------------------------
 | Default Bot Icon
@@ -29,7 +29,7 @@ return [
 | Your bot's default icon.
 |
 */
-	'icon' => ':ghost:',
+	'icon' => ':100:',
 /*
 |--------------------------------------------------------------------------
 | Default channels the bot will post to.
