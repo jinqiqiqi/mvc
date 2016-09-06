@@ -15,7 +15,7 @@ class View
 
 	public static function make($viewName = null) {
 		if( ! $viewName) {
-			throw new InvalidArgumentException('视力名字不能为空');
+			throw new InvalidArgumentException('视图名字不能为空');
 		}
 		else {
 			$viewFilePath = self::getFilePath($viewName);
@@ -23,7 +23,7 @@ class View
 				return new View($viewFilePath);
 			}
 			else {
-				throw new UnexpectedValueException('视力文件不存在');
+				throw new UnexpectedValueException('视图文件不存在');
 			}
 		}
 	}
@@ -35,7 +35,7 @@ class View
 
 	private static function getFilePath($viewName) {
 		$filePath = str_replace('.', '/', $viewName);
-		return BASE_PATH. self::VIEW_BASE_PATH. $filePath. '.php';
+		return APP_PATH. self::VIEW_BASE_PATH. $filePath. '.php';
 	}
 
 	public function __call($method, $parameters) {

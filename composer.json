@@ -6,13 +6,14 @@
         "illuminate/database": "*",
         "filp/whoops": "*",
         "nette/mail": "*",
-        "predis/predis": "*"
+        "predis/predis": "*",
+        "maknz/slack": "*"
     },
     "autoload": {
     	"classmap": [
-    		"controllers",
-    		"models",
-    		"services"
+    		"app/controllers",
+    		"app/models",
+    		"app/services"
     	]
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
 /**
-* Article Model
+* Currency Model
 */
-class Article extends Illuminate\Database\Eloquent\Model
+class Currency extends Illuminate\Database\Eloquent\Model
 {
 	public $timestamps = false;
 	public $table = 'tasks';

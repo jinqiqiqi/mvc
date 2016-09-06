@@ -8,9 +8,9 @@ Macaw::get('just', function(){
 
 Macaw::get('home', 'HomeController@home');
 
-// Macaw::get('/', function(){
-// 	echo "root / index.php";
-// });
+Macaw::get('/', function(){
+	echo "root / index.php";
+});
 
 // Macaw::get('(:all)', function($fu){
 // 	echo 'not matched: '. $fu;

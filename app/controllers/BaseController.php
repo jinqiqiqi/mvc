@@ -6,10 +6,11 @@
 class BaseController
 {
 	protected $view;
+	protected $slack;
 	
 	function __construct()
 	{
-		# code...
+		$this->slack = new Slack();
 	}
 
 	function __destruct() {
