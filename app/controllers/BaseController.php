@@ -10,7 +10,11 @@ class BaseController
 	
 	function __construct()
 	{
-		$this->slack = new Slack();
+		// $this->slack = new Slack();
+		$settings = [
+			'link_names' => true,
+		];
+		$this->slack = new Maknz\Slack\Client('https://hooks.slack.com/services/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', $settings);
 	}
 
 	function __destruct() {
