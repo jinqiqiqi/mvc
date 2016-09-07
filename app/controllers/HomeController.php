@@ -31,26 +31,29 @@ class HomeController extends BaseController
 		$time->setTimeZone(new DateTimeZone("Asia/Shanghai"));
 		$format = "Y-m-d H:i:s";
 
-		$fields = [[
-			'title' => 'Currency name',
-			'value' => $result[0],
-			'short' => true
-		],[
-			'title' => 'Value',
-			'value' => $result[1],
-			'short' => true
-		],[
-			'title' => 'Exchange Time',
-			'value' => $time->format($format),
-			'short' => true
-		]];
+		if($result[1] > 6.663) {
+			$fields = [[
+				'title' => 'Currency name',
+				'value' => $result[0],
+				'short' => true
+			],[
+				'title' => 'Value',
+				'value' => $result[1],
+				'short' => true
+			],[
+				'title' => 'Exchange Time',
+				'value' => $time->format($format),
+				'short' => true
+			]];
+			$this->slack->to("#general")->attach([
+				'fallback' => '当前的交易值',
+				'text' => '当前的交易值',
+				'color' => '#FF0000',
+				'fields' => $fields
+			])->send('美元：人民币汇率提醒:');
+		}
 		print_r($fields);
-		$this->slack->to("#general")->attach([
-			'fallback' => '当前的交易值',
-			'text' => '当前的交易值',
-			'color' => '#FF0000',
-			'fields' => $fields
-		])->send('当前的交易值:');
+		
 		// $this->slack->send(date('Y-m-d H:i:s'). ': 上午学习时间已经到期. @jinqiqiqi');
 	}
 }
