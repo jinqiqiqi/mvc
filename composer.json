@@ -7,7 +7,8 @@
         "filp/whoops": "*",
         "nette/mail": "*",
         "predis/predis": "*",
-        "maknz/slack": "*"
+        "maknz/slack": "*",
+        "guzzlehttp/guzzle": "^6.2"
     },
     "autoload": {
     	"classmap": [
