@@ -37,12 +37,8 @@ class HomeController extends BaseController
 				'value' => $result[0],
 				'short' => true
 			],[
-				'title' => 'Value',
+				'title' => $time->format($format). ': ',
 				'value' => $result[1],
-				'short' => true
-			],[
-				'title' => 'Exchange Time',
-				'value' => $time->format($format),
 				'short' => true
 			]];
 			$this->slack->to("#general")->attach([
