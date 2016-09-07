@@ -48,7 +48,7 @@ class HomeController extends BaseController
 				'fields' => $fields
 			])->send('美元：人民币汇率提醒:');
 		}
-		print_r($fields);
+		print_r($result);
 		
 		// $this->slack->send(date('Y-m-d H:i:s'). ': 上午学习时间已经到期. @jinqiqiqi');
 	}
