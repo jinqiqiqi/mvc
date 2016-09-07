@@ -26,8 +26,7 @@ class HomeController extends BaseController
 		]);
 		$result = str_getcsv($res->getBody());
 
-		$datetime = strtotime($result[3]. ' '. $result[2]);
-
+		$datetime = date("Y-m-d H:i:s", strtotime($result[3]. ' '. $result[2]));
 		$time = new DateTime($datetime, new DateTimeZone('UTC'));
 		$time->setTimeZone(new DateTimeZone("Asia/Shanghai"));
 		$format = "Y-m-d H:i:s";
