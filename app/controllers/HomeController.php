@@ -21,7 +21,7 @@ class HomeController extends BaseController
 			'query' => [
 				'e' => '.csv',
 				'f' => 'sl1d1t1',
-				's' => 'USDCNY=X'
+				's' => 'JPYCNY=X'
 			]
 		]);
 		$result = str_getcsv($res->getBody());
@@ -31,7 +31,7 @@ class HomeController extends BaseController
 		$time->setTimeZone(new DateTimeZone("Asia/Shanghai"));
 		$format = "Y-m-d H:i:s";
 
-		if($result[1] > 6.7) {
+		if($result[1] > 0.067) {
 			$fields = [[
 				'title' => 'Currency name',
 				'value' => $result[0],
