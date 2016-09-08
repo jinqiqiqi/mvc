@@ -31,7 +31,7 @@ class HomeController extends BaseController
 		$time->setTimeZone(new DateTimeZone("Asia/Shanghai"));
 		$format = "Y-m-d H:i:s";
 
-		if($result[1] > 0.067) {
+		if($result[1] > 0.075 || $result[1] < 0.064) {
 			$fields = [[
 				'title' => 'Currency name',
 				'value' => $result[0],
@@ -41,12 +41,20 @@ class HomeController extends BaseController
 				'value' => $result[1],
 				'short' => true
 			]];
+			$color = '#00FF00';
+			$text = '建议抛：';
+			$diff = $result[1] - 0.065538;
+			if($result[1] < 0.064) {
+				$color = '#FF0000';
+				$text = '目前涨幅为：'. $diff;
+			}
+
 			$this->slack->to("#general")->attach([
-				'fallback' => '当前的交易值',
-				'text' => '当前的交易值',
-				'color' => '#FF0000',
+				'fallback' => $text,
+				'text' => $text,
+				'color' => $color,
 				'fields' => $fields
-			])->send('美元：人民币汇率提醒:');
+			])->send('日元：人民币 汇率提醒:');
 		}
 		print_r($result);
 		
