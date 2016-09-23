@@ -80,9 +80,8 @@ class HomeController extends BaseController
 		$time = new DateTime($datetime, new DateTimeZone('Europe/London'));
 		$time->setTimeZone(new DateTimeZone("Asia/Shanghai"));
 		$format = "Y-m-d H:i:s";
-print_r($result);
 
-		if($result[1] > 0.0654 || $result[1] < 0.064) {
+		if($result[1] > 6.70 || $result[1] < 6.69) {
 			$fields = [[
 				'title' => 'Currency name',
 				'value' => $result[0],
@@ -92,12 +91,13 @@ print_r($result);
 				'value' => $result[1],
 				'short' => true
 			]];
-			$color = '#00FF00';
-			$text = '建议抛：';
+			$color = '#00FFFF';
+			$text = '建议买入：';
 			$diff = $result[1] - 0.065538;
-			if($result[1] < 0.064) {
-				$color = '#FF0000';
+			if($result[1] < 6.4) {
+				$color = '#FFFF00';
 				$text = '目前涨幅为：'. $diff;
+				$text = '建议抛出：';
 			}
 
 			$this->slack->to("#general")->attach([
@@ -105,7 +105,7 @@ print_r($result);
 				'text' => $text,
 				'color' => $color,
 				'fields' => $fields
-			])->send('日元：人民币 汇率提醒:');
+			])->send('美元：人民币 汇率提醒:');
 		}
 		print_r($result);
 		
