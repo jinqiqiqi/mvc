@@ -8,6 +8,10 @@ Macaw::get('just', function(){
 
 Macaw::get('home', 'HomeController@home');
 
+
+Macaw::get('usd', 'HomeController@usd');
+
+
 Macaw::get('/', function(){
 	echo "root / index.php";
 });
