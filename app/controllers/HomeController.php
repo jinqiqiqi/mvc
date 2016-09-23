@@ -81,7 +81,7 @@ class HomeController extends BaseController
 		$time->setTimeZone(new DateTimeZone("Asia/Shanghai"));
 		$format = "Y-m-d H:i:s";
 
-		if($result[1] > 6.70 || $result[1] < 6.69) {
+		if($result[1] > 6.70 || $result[1] < 6.6) {
 			$fields = [[
 				'title' => 'Currency name',
 				'value' => $result[0],
